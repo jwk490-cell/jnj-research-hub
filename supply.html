@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko" class="ht-supply">
 <head>
 <meta charset="UTF-8">
@@ -175,7 +175,7 @@ function rowsInst(rows){
       +'<td class="nm">'+nmLink(r)+'</td>'
       +'<td class="rat" style="color:'+ratCls(r.ch)+'">'+r.ch.toFixed(2)+'%</td>'
       +'<td class="rat" style="color:'+ratCls(r.r)+'">'+r.r.toFixed(2)+'%</td>'
-      +'<td class="net">'+r.v.toLocaleString("ko-KR",{minimumFractionDigits:2,maximumFractionDigits:2})+'억</td>'
+      +'<td class="net">'+Math.round(r.v).toLocaleString("ko-KR")+'억</td>'
       +'<td class="net">'+fmtNum(r.mc)+'</td></tr>').join('')+'</tbody></table>';
 }
 
