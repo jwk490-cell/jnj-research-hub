@@ -26,6 +26,8 @@ $supply = Get-ChildItem $src -Filter "KRX 신고가*.html" -File |
           Sort-Object LastWriteTime -Descending | Select-Object -First 1
 $export = Get-ChildItem $src -Filter "주요품목 수출 대시보드*.html" -File |
           Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$semietf = Get-ChildItem $src -Filter "반도체ETF_수혜_*.html" -File |
+           Sort-Object LastWriteTime -Descending | Select-Object -First 1
 
 Write-Host "=== 배포 ==="
 Publish-One $supply.FullName                                        "supply.html"     "ht-supply"
@@ -33,6 +35,7 @@ Publish-One "C:\Users\smily\.claude\sector-report\sector-report.html" "sector.ht
 Publish-One $export.FullName                                        "export.html"     "ht-export"
 Publish-One "$src\이격도.html"                                       "disparity.html"  "ht-disp"
 Publish-One "$src\osc_dashboard.html"                               "oscillator.html" "ht-osc"
+Publish-One $semietf.FullName                                       "semietf.html"    "ht-semietf"
 
 if (-not $NoPush) {
     $st = git -C $site status --porcelain
